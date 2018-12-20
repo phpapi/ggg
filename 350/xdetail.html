@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow" />
+<meta name="renderer" content="webkit">
+<link type="text/css" rel="stylesheet" href="images/style.css">
+<link rel="stylesheet" href="//xq.350.net/assets/stylesheets/ixq.css?6" type="text/css" />
+<script src="//xq.350.net/assets/javascripts/jquery.min.js"></script>
+<script src="//xq.350.net/assets/javascripts/base.min.js"></script>
+</head>
+<body style="background-color:#FFF; background-image:url(images/moban_bg.jpg); background-repeat:repeat-x;">
+<script type="text/javascript">
+$(document).ready(function() {
+	$.puid = 13143;  //你的代理UID数字账号填写到这里
+	
+	(function($){
+		var getNowFormatDate = function(){
+			var date = new Date(),seperator = "";
+			return date.getFullYear() + seperator + (date.getMonth() + 1) + seperator + date.getDate();
+		}
+		$.loadJS('//xq.350.net/assets/javascripts/ixq_ui.js?'+getNowFormatDate(),function(){
+			var _get = function(name){
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"),
+				r = window.location.search.substr(1).match(reg);
+				if(r!=null)return unescape(r[2]);
+				return null;
+			}
+			
+			var tid = _get("tid"),
+			p = $.puid?$.puid:_get("p"),
+			bd = $("#bd");
+			$.getJSON("//xq.350.net/api/detail?tid="+tid+"&p="+p+"&callback=?", function (d) {
+				bd.html(d.html);
+				$.detail_init(bd.find('.template-detail'));
+			})
+		});
+	})($)
+});
+</script>
+<style>
+#content-hold {
+  position: relative;
+  height: 400px;
+}
+#content-hold .preloader{
+  width: 224px;
+  height: 78px;
+  left: 50%;
+  top: 161px;
+  position: absolute;
+  margin-left: -113px;
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  border: 1px solid #DDD;
+  z-index: 5;
+  text-align: center;
+}
+#content-hold .preloader i {
+  display: inline-block;
+  vertical-align: top;
+  height: 7px;
+  width: 140px;
+  background: url(http://zx.350.net/assets/images/data-loading.gif) no-repeat;
+  margin: 26px 0 8px 0;
+}
+#content-hold .preloader p{
+  font: 14px/1 "Microsoft Yahei";
+  color: #AAA;
+}
+.STYLE1 {
+	font-size: 22px;
+	font-weight: bold;
+	color: #FFFF00;
+}
+.zc,.zc1{
+	color: #ffffff!important;
+    text-shadow: 0 -1px #A76922;
+    background-color: #FF9922;
+    background-repeat: repeat-x;
+    border-color: #F5A447 #F5A447 #ff8800;
+    /* border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); */
+    background-image: linear-gradient(to bottom, #ffb000, #ff8800);
+    font-size: 20px;
+    display: inline-block;
+	width:180px;
+	border-radius: 4px;
+	    border-left: 0 none #e6e6e6;
+    border-right: 0 none #e6e6e6;
+    border-top: 0 none #e6e6e6;
+    border-bottom: 0 none #b3b3b3;
+	    line-height: 20px;
+	 vertical-align: middle;
+    cursor: pointer;padding: 15px 30px 15px;    text-decoration: none;
+	font-family:微软雅黑;
+	}
+.zc1{
+	padding: 5px 5px;font-size: 18px;line-height: 18px;width:180px; text-align:center;}
+</style>
+<table width="100%" height="120" bgcolor="#CC0000" id="top">
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td width="700" align="center" valign="middle"><p class="STYLE1">刚哥哥淘宝超级模版  【一次购买 永久使用】<br />
+      210元全功能版<span style="color:#fff; font-size:15px;">（全部模板）</span> 120元店铺首页模板<span style="color:#fff; font-size:15px;">（全部店铺首页模板）</span><br />90元详情模板<span style="color:#fff; font-size:15px;">（全部详情描述模板）</span>
+     </p></td>
+    <td style="color:#fff; line-height:150%;"><p style="display:none;"><strong>◆ 模板购买价格：</strong>90元全集版（全站所有电脑端首页模版）&nbsp; 120元旗舰版（全站所有电脑端+手机端首页模版）&nbsp; 90元宝贝详情描述模板（全站所有宝贝详情描述模版）</p>
+	  <p><strong>◆ 模板如何购买：</strong><a href="//350.ganggg.com/" style="color: #FFFF00">购买页面</a>，根据提示操作即可 </p>
+      <p><strong>◆ 模版如何使用：</strong><a href="//www.ganggg.com/350/jc.htm" style="color: #FFFF00"><strong>点击观看首页模板视频教程</strong></a>&nbsp;&nbsp;<a href="//www.ganggg.com/350/jc3.htm" style="color: #FFFF00"><strong>点击观看宝贝详情描述模板视频教程</strong></a>(若无法观看请多刷新几次网页后再试试）</p>
+      <p><strong>◆ 模版账号注册：</strong><a href="//www.ganggg.com/350/zc.htm" class="zc1">立即注册超级模板</a>&nbsp;</p>
+   </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<div class="bd">
+    <div class="mainnav1" style="margin-top:12px;height:114px; ">
+    	<div class="logo" id="logo" style="position: relative; left: 60px; float: left;"><a href="//www.ganggg.com/350/show.htm" title="350淘宝装修"><img src="images/logo.gif"><img src="images/sub_logo.gif"></a></div>
+        <div class="tips_mb" style="position:relative; top:-18px;"><a href="show.htm#" onclick="addfavorite()">加入收藏</a> | <a href="//www.ganggg.com/350/faq/1159.html" title="350激活码" target="_blank">免费获取激活码</a> | <a href="http://login.350.net/" target="_blank">
+		后台登录</a></div><br>
+        <div class="nav">
+        	<ul>
+            	<li class="navlink_mb"><a href="//www.ganggg.com/350/show.htm" title="电脑端350店铺模板展示"><span class="navlinkt">350电脑首页模板</span><br><span class="navlinkb_mb">Index Template</span></a></li>
+            	<li class="navx"></li>
+                <li class="navlink_mb"><a href="show_sj.htm" title="350手机淘宝模板展示"><span class="navlinkt">350手机首页模板</span><br><span class="navlinkb_mb">Mobile Template</span></a></li>
+                <li class="navx"></li>
+                <li class="navlink_mb"><a href="show_xqy.htm" title="350宝贝详情描述模板"><span class="navlinkt">宝贝详情描述模板</span><br><span class="navlinkb_mb">Details Page Template</span></a></li>
+                <li class="navx"></li>
+                <li class="navlink_mb"><a href="hblist.html" title="350海报模板"><span class="navlinkt">海报图片模板</span><br><span class="navlinkb_mb">Pictures Template</span></a></li>
+                <li class="navx"></li>
+                <li class="navlink_mb" onmouseover="showsmnav()" onmouseout="hidesmnav()"><a href="//350.ganggg.com/" title="刚哥哥350模板购买"><span class="navlinkt"><img src="images/nav_goumai.gif"></span><br><span class="navlinkb_mb">Buy Online</span></a></li>
+                <li class="navx"></li>
+                <li class="navlink_mb"><a href="youshi.htm" title="350装修优势"><span class="navlinkt">我们的优势</span><br><span class="navlinkb_mb">Advantage</span></a></li>
+                <li class="navx"></li>
+                <li class="navlink_mb"><a href="jc.htm" title="首页装修教程"><span class="navlinkt">首页装修教程</span><br><span class="navlinkb_mb">Video Tutorial</span></a></li>
+                
+            </ul>
+        </div>
+        <!--<div class="sm_nav_mb" id="sm_nav" onmouseover="showsmnav()" onmouseout="hidesmnav()"><a href="//350.ganggg.com/" title="350模板购买">在线购买</a>  |  <a href="http://item.taobao.com/item.htm?id=13820710473" target="_blank">淘宝购买</a> </div>-->
+    </div>
+    </div>
+
+<div id="bd">
+	<div id="content-hold">
+		<div class="preloader"><i></i>
+		  <p>稍等 正在初始化数据</p>
+		</div>
+	</div>
+</div>
+<div style="clear:both;"></div>
+    <div class="foot">
+    	<div id="scrollTop">
+    		<div class="level-2"></div>
+    		<div class="level-3"></div>
+		</div>
+    	<script src="js/gotop.js"></script>
+        <div style="margin:20px auto;width:950px; text-align:center; font-size:12px; height:auto; overflow:hidden; line-height:150%; padding:10px 0;">
+        <div style="text-align:center;"><a href="zc.htm" class="zc">立即注册账号</a></div>
+			刚哥哥为你介绍350一键淘宝店铺装修模板平台，这里包括350超级模板的展示和功能介绍等。350装修平台怎么样，刚哥哥提供350装修模板教程和相关问题解答以及网店服务。<br>
+            本站部分内容来源于网络或网友上传，如有侵犯您的权益，请告诉我们，立即删除处理！<br>
+			Copyright © 2011-2022 刚哥哥网店装修联盟 All rights reserved.
+<script src="https://s4.cnzz.com/stat.php?id=2843171&web_id=2843171" language="JavaScript"></script><br />
+<a href="//www.miibeian.gov.cn/" target="_blank">蜀ICP备17022167号-3</a><br />
+ </div>
+    </div>
+</body>
+</html>

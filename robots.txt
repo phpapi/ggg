@@ -1,0 +1,16 @@
+User-Agent: Baiduspider
+Disallow: /phpMyAdmin
+Disallow: /js
+Disallow: /css2012
+Disallow: /rewrite
+Disallow: /qwe123
+Disallow: /templets
+Disallow: /include
+Disallow: /css
+Disallow: /plus
+Disallow: /url
+Disallow: /2012xwp/shanghai
+Disallow: /2012xwp/beijing/shenbo
+Disallow: /jiaocheng/html/amdb
+Disallow: /sucai/dianzhao/2012
+Disallow: /images

@@ -1,0 +1,502 @@
+
+
+
+
+/*-------------------------------导航店招------------------------------*/
+
+#hd {
+
+	background-position: top; overflow: hidden; max-height: 150px;
+
+}
+
+.naveditor .custom-banner {
+
+	text-align: center; color:#999;position:relative;
+
+}
+
+.naveditor .custom-banner .title {
+	color:#9b9a9a;
+	font-size:22px;
+	font-family:微软雅黑;background: #fff;position:absolute;height:40px;left:50%;top:50%;margin-left:-175px;margin-top:-20px; padding: 0px; border-radius: 10px; -webkit-border-radius:10px;-moz-border-radius:10px;width: 500px; opacity: 80;
+
+}
+
+h5,h2{
+
+	margin:2px 0;color: inherit; font-family: inherit;
+
+}
+
+.naveditor .custom-banner .title h2{
+
+	font-size: 22px; font-weight: 700;line-height:40px; 
+
+}
+
+.naveditor .custom-banner .title h5{
+
+	font-size: 16px; font-weight: 500;line-height:20px; 
+
+}
+
+
+
+/*--------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6{font-weight:500;}
+
+.tshop-pbsm-shop-nav-ch {
+
+	margin: 0px auto; 
+
+	width: 990px !important; 
+
+	overflow: hidden; 
+
+	display:block !important; 
+
+	visibility: visible;
+
+	*zoom:1;
+
+}
+
+.tshop-pbsm-shop-nav-ch:after {
+
+	height: 0px; 
+
+	clear: both;
+
+	display: block;
+
+	content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .skin-box-bd:after {
+
+    clear: both;
+
+    content: "\20";
+
+    display: block;
+
+    height: 0;
+
+}
+
+.tshop-pbsm-shop-nav-ch a:hover {
+
+	text-decoration: none;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content {
+
+	background: #b1c8d7; 
+
+	border: 1px solid #f5f8fc;
+
+	border-image: none; 
+
+	left: -9999px;
+
+	top: -9999px; 
+
+	width: 190px; 
+
+	position: absolute;
+
+	z-index:100;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree {
+
+	margin: 0px 0px 10px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .cat-hd-hover {
+
+	 background:#B1C8D7;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .cat-hd-hover .fst-cat-icon {
+
+	background-position: 0px -110px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .cat-hd-hover .fst-cat-name {
+
+	color: #fff;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .fst-cat {
+
+	height: 28px; line-height: 28px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .fst-cat-hd {
+
+	height: 26px; line-height: 26px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .fst-cat-hd:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .fst-cat-icon {
+
+	background: url("http://img02.taobaocdn.com/tps/i2/T156jcXXhfXXcMeXnl-22-160.gif") no-repeat 0px -90px #000;
+
+	margin: 12px 6px 0px 15px; 
+
+	width: 3px;
+
+	height: 3px;
+
+	overflow: hidden;
+
+	float: left; 
+
+	display: block;
+
+	_display: inline;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .fst-cat-name {
+
+	width: 160px; height: 26px; overflow: hidden; float: left; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-pop {
+
+	left: -9999px; top: -9999px; position: absolute;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-pop-inner {
+
+	background: #b1c8d7;
+
+	padding: 10px 0px; 
+
+	width: 190px; 
+
+	height: 260px; 
+
+	overflow: auto;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-cat-hd {
+
+	height: 26px; line-height: 26px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-cat-hd:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-cat-icon {
+
+	background: url("http://img02.taobaocdn.com/tps/i2/T156jcXXhfXXcMeXnl-22-160.gif") no-repeat 0px -110px #000; 
+
+	margin: 12px 6px 0px 15px;
+
+	width: 3px;
+
+	height: 3px; 
+
+	overflow: hidden;
+
+	float: left; 
+
+	display: block;
+
+	_display: inline;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-cat-name {
+
+	width: 140px; height: 26px; overflow: hidden; float: left; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree a.snd-cat-name:hover {
+
+	color: #fff;
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats-popup {
+
+	width: 188px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-popup-cats {
+
+	padding-top: 10px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-popup-cats .sub-cat {
+
+	height: 26px; line-height: 26px; text-indent: 10px; overflow: hidden; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-popup-cats .sub-cat a {
+
+	width: 190px; height: 26px; overflow: hidden; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-popup-cats .sub-cat-hover {
+
+	background: #b1c8d7;
+
+}
+
+.tshop-pbsm-shop-nav-ch .skin-box-bd {
+
+	*zoom:1;
+
+	border-width: 0px 0px 1px;
+
+	border-style: none none solid;
+
+	border-color: currentColor currentColor #b1c8d7;
+
+	border-image: none; 
+
+	height: 33px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .skin-box-bd:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .skin-box-bd a {
+
+	color: #303030;
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats {
+
+	float: left;
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats .link {
+
+	background: url("http://img03.taobaocdn.com/tps/i3/T1vEi4XnhyXXXm0Pva-454-340.png") no-repeat 0px 4px #f5f8fc; 
+
+	padding: 0px 10px;
+
+	width: 168px; 
+
+	height: 32px; 
+
+	color: #333; 
+
+	line-height: 32px;
+
+	font-size: 14px;
+
+	font-weight: 700;
+
+	border-right: 1px solid #b1c8d7;
+
+	border-top: 1px solid #b1c8d7;
+
+	border-left: 1px solid #b1c8d7;
+
+	display: block;
+
+	font-weight: 700;
+
+	*zoom:1
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats .link:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats .link .title {
+
+	margin-left: 10px; float: left; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats .link .popup-icon {
+
+	background: url("http://img03.taobaocdn.com/tps/i3/T1vEi4XnhyXXXm0Pva-454-340.png") no-repeat -200px -8px; width: 15px; height: 14px; margin-top: 8px; float: right; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .all-cats-hover .link .popup-icon {
+
+	background-position: -220px -8px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list {
+
+	float: left;*zoom:1;width:760px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .menu {
+
+	float: left;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .link {
+
+	background: url("http://img03.taobaocdn.com/tps/i3/T1vEi4XnhyXXXm0Pva-454-340.png") no-repeat 0px 4px #f5f8fc; 
+
+	padding: 0px 20px;
+
+	height: 32px;
+
+	color: #333;
+
+	line-height: 32px; 
+
+	font-size: 14px; 
+
+	font-weight: 700; 
+
+	border-right: 1px solid #b1c8d7;
+
+	border-top: 1px solid #b1c8d7;
+
+	*zoom:1;
+
+	float: left; 
+
+	display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .link:after {
+
+	height: 0px; clear: both; display: block; content: "\20";
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .link .title {
+
+	float: left; display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .link .popup-icon {
+
+	background: url("http://img03.taobaocdn.com/tps/i3/T1vEi4XnhyXXXm0Pva-454-340.png") no-repeat -200px -8px;
+
+	width: 15px;
+
+	height: 14px;
+
+	margin-top: 8px;
+
+	margin-left: 12px; 
+
+	float: left; 
+
+	display: block;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .menu-hover .link {
+
+	background: url("http://img03.taobaocdn.com/tps/i3/T1vEi4XnhyXXXm0Pva-454-340.png") no-repeat 0px -34px #f5f8fc;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .menu-hover .link .popup-icon {
+
+	background-position: -220px -8px;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .menu-selected {
+
+	background: url("http://img02.taobaocdn.com/tps/i2/T156jcXXhfXXcMeXnl-22-160.gif") repeat-x 0px -40px #000;
+
+}
+
+.tshop-pbsm-shop-nav-ch .menu-list .menu-selected .link {
+
+	background: no-repeat 0px 0px #fff; border-bottom-color: white;
+
+}
+
+#page #content .tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-pop {
+
+	left: 188px; top: 28px;
+
+}
+
+#page #content .tshop-pbsm-shop-nav-ch .popup-content {
+
+	left: auto; top: auto;
+
+}
+
+.tshop-pbsm-shop-nav-ch .skin-box-bd {
+
+	height: 32px;
+
+}
+
+#page #content .tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-pop-inner {
+
+	height: 220px;
+
+}
+
+
+.toolbar input{width:auto;border: 1px solid #ccc;text-indent:0px;height:16px;line-height:16px;padding: 4px 3px; color:#555; font-size:12px; vertical-align: middle; display: inline-block; margin: 0;}
+
+@media (min-width: 1200px){
+	#ft .row [class*="span"]{
+	    display: inline-block;
+	    float: none;
+	}
+}
+
+

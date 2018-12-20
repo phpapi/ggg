@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="350网店服务平台,淘宝装修,网店装修,店铺装修,350加盟,350代理,网店代理" />
+<meta name="description" content="350网店服务平台是专门为中小卖家提供的物美价廉服务平台,真正的为中小卖家着想的各种网店解决方案" />
+<title>自助开通-350网店服务平台</title>
+<link rel="stylesheet" href="//u.350.net/assets/stylesheets/layout.css?20150611" type="text/css" />
+<script src="//zx.350.net/assets/javascripts/jquery.min.js"></script>
+<script src="//u.350.net/assets/javascripts/activate.js?170611"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.init();
+});
+</script>
+<div id="hd">
+  <div style="height:50px;line-height:50px;text-align:center; font-size:18px; background-color:#fff">页头自定义区</div>
+</div>
+<div id="bd" class="layout">
+  <div class="jh-content clear">
+    <div class="content-wrap">
+      <div class="page-nav">
+        <div class="title-wrap">
+          <h2>自助开通系统</h2>
+        </div>        
+      </div>
+      <div class="jh-form formPanel" data-regtype="phone"></div>
+      <div class="jh-ad">
+        <dl class="intro">
+          <dt>温馨提醒，开通账号必看</dt>
+          <dd><em>1.</em>在未开通账号前，请妥善保管您所购买的卡密，切勿将卡密透露给他人。</dd>
+          <dd><em>2.</em>若是新用户请确定您填写的Email是否正确，以及开通的产品是否选择正确。</dd>
+          <dd><em>3.</em>若出现因个人原因不慎填错Email或产品选择错误，责任均由用户自己承担。</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="J_jh_html" type="text/html">
+		<form action="//u.350.net/activate/submit" class="jh-formP">
+        <input type="hidden" name="isnew" value="<%=tp%>">
+        <div class="control-group">
+          <label class="control-label">激活码：</label>
+          <div class="control">
+            <input class="text" type="text" placeholder="输入激活码" name="key" maxlength="21">
+			<div class="tips keyTips"></div>
+          </div>
+        </div>
+        <div class="control-group jh-selecter">
+          <label class="control-label">选择模板：</label>
+          <div class="control">
+            <div class="tpl-selecter">
+              <input class="text" type="text" name="tid" placeholder="选择淘宝模板" readonly>
+              <a href="#" class="selecter">选择模板</a></div>
+          </div>
+        </div>
+		<%if(tp==0){%>
+        <div class="control-group phone-group">
+          <label class="control-label">手机号：</label>
+          <div class="control">
+            <input class="text" type="text" placeholder="输入您的手机号" style="width: 120px;" name="phone"><a href="#" class="send_sms">发送验证码</a><div class="tips phoneTips"></div>
+            <div class="switch-reg">或使用<a href="#">邮箱注册</a></div>
+          </div>
+        </div>
+		<div class="control-group phonecode-group" style="display:none">
+          <label class="control-label">短信验证码：</label>
+          <div class="control">
+            <input class="text" type="text" placeholder="输入短信验证码" style="width: 120px;" name="pcode">
+            <div class="tips phonecodeTips"></div>
+          </div>
+        </div>
+		<div class="control-group email-group" style="display:none">
+          <label class="control-label">Email：</label>
+          <div class="control">
+            <input class="text" type="text" placeholder="输入您的电子邮箱" autocomplete="off" name="email">
+            <input style="display:none">
+            <div class="switch-reg">或使用<a href="#">手机注册</a></div>
+          </div>
+        </div>
+		<%}else{%>
+        <div class="control-group">
+          <label class="control-label">Email/UID：</label>
+          <div class="control">
+            <input class="text" type="text" placeholder="输入您的电子邮箱/UID" name="exist_user">
+          </div>
+        </div>
+		<%}%>
+		<%if(tp==0){%>
+        <div class="control-group jh-pwd">
+          <label class="control-label">密码：</label>
+          <div class="control">
+            <input class="text" type="password" placeholder="输入密码" name="pwd" maxlength="20"><div style="height:22px"><div class="tips pwdTips"><p class="notice"><span class="icon_askS"></span>6~16个字符</p></div><div class="pswState pswState-poor" style="display:none"><span class="s1">弱</span> <span class="s2">中等</span> <span class="s3">强</span></div></div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">重复密码：</label>
+          <div class="control">
+            <input class="text" type="password" placeholder="再次输入密码" name="pwd2" maxlength="20"><div class="tips pwd2Tips"></div>
+          </div>
+        </div>
+		<%}%>
+        <div class="control-group vcode-group" style="display:none">
+          <label class="control-label">验证码：</label>
+          <div class="control">
+            <input class="text" type="text" name="vcode" style="width:60px" placeholder="验证码" maxlength="4">
+            <img src="//u.350.net/captcha" width="100" height="40" data-url="//u.350.net/captcha?" class="d-ib vcode"><a href="#" class="d-ib vcode-ce">看不清？</a> </div>
+        </div>
+        <div class="opt-footer" style="clear:both">
+          <input type="button" value="确认提交" class="button-box btn-ok">
+        </div>
+		</form>
+</script>
+<div style="height:50px;line-height:50px;text-align:center; font-size:18px; background-color:#fff">页尾自定义区</div>
+</body>
+</html>
