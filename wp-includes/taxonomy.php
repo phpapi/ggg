@@ -1277,6 +1277,11 @@ function has_term_meta( $term_id ) {
 	return $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value, meta_id, term_id FROM $wpdb->termmeta WHERE term_id = %d ORDER BY meta_key,meta_id", $term_id ), ARRAY_A );
 }
 
+function get_terms_by_sublink(){
+    global $wpdb;
+    return $wpdb->get_results( "SELECT * FROM $wpdb->terms WHERE sublink=1" , ARRAY_A );
+}
+
 /**
  * Registers a meta key for terms.
  *
@@ -2066,6 +2071,8 @@ function wp_insert_term( $term, $taxonomy, $args = array() ) {
 
 	// Coerce null description to strings, to avoid database errors.
 	$args['description'] = (string) $args['description'];
+    $args['sublink'] = $args['sublink'] ;
+
 
 	$args = sanitize_term($args, $taxonomy, 'db');
 
@@ -2073,6 +2080,7 @@ function wp_insert_term( $term, $taxonomy, $args = array() ) {
 	$name = wp_unslash( $args['name'] );
 	$description = wp_unslash( $args['description'] );
 	$parent = (int) $args['parent'];
+    $sublink = (int) $args['sublink'];
 
 	$slug_provided = ! empty( $args['slug'] );
 	if ( ! $slug_provided ) {
@@ -2148,7 +2156,7 @@ function wp_insert_term( $term, $taxonomy, $args = array() ) {
 
 	$slug = wp_unique_term_slug( $slug, (object) $args );
 
-	$data = compact( 'name', 'slug', 'term_group' );
+	$data = compact( 'name', 'slug', 'term_group' , 'sublink' );
 
 	/**
 	 * Filters term data before it is inserted into the database.
@@ -2639,7 +2647,6 @@ function wp_unique_term_slug( $slug, $term ) {
  */
 function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	global $wpdb;
-
 	if ( ! taxonomy_exists( $taxonomy ) ) {
 		return new WP_Error( 'invalid_taxonomy', __( 'Invalid taxonomy.' ) );
 	}
@@ -2648,7 +2655,6 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 
 	// First, get all of the original args
 	$term = get_term( $term_id, $taxonomy );
-
 	if ( is_wp_error( $term ) ) {
 		return $term;
 	}
@@ -2664,7 +2670,6 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 
 	// Merge old and new args with new args overwriting old ones.
 	$args = array_merge($term, $args);
-
 	$defaults = array( 'alias_of' => '', 'description' => '', 'parent' => 0, 'slug' => '');
 	$args = wp_parse_args($args, $defaults);
 	$args = sanitize_term($args, $taxonomy, 'db');
@@ -2673,9 +2678,11 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	// expected_slashed ($name)
 	$name = wp_unslash( $args['name'] );
 	$description = wp_unslash( $args['description'] );
+    $sublink = wp_unslash( $args['sublink'] );
 
 	$parsed_args['name'] = $name;
 	$parsed_args['description'] = $description;
+    $parsed_args['sublink'] = $sublink;
 
 	if ( '' == trim( $name ) ) {
 		return new WP_Error( 'empty_term_name', __( 'A name is required for this term.' ) );
@@ -2762,7 +2769,7 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	 */
 	do_action( 'edit_terms', $term_id, $taxonomy );
 
-	$data = compact( 'name', 'slug', 'term_group' );
+	$data = compact( 'name', 'slug', 'term_group' ,'sublink' );
 
 	/**
 	 * Filters term data before it is updated in the database.
@@ -2779,6 +2786,7 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	$wpdb->update( $wpdb->terms, $data, compact( 'term_id' ) );
 	if ( empty($slug) ) {
 		$slug = sanitize_title($name, $term_id);
+
 		$wpdb->update( $wpdb->terms, compact( 'slug' ), compact( 'term_id' ) );
 	}
 
@@ -3588,6 +3596,7 @@ function _split_shared_term( $term_id, $term_taxonomy_id, $record = true ) {
 	$new_term_data = array(
 		'name' => $shared_term->name,
 		'slug' => $shared_term->slug,
+        'sublink' => $shared_term->sublink,
 		'term_group' => $shared_term->term_group,
 	);
 

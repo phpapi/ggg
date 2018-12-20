@@ -157,7 +157,8 @@ case 'editedtag':
 			403
 		);
 	}
-
+	// print"<pre>";
+	// print_r($_POST);exit;
 	$tag = get_term( $tag_ID, $taxonomy );
 	if ( ! $tag )
 		wp_die( __( 'You attempted to edit an item that doesn&#8217;t exist. Perhaps it was deleted?' ) );
@@ -445,11 +446,31 @@ do_action( "{$taxonomy}_term_new_form_tag" );
 	<?php endif; ?>
 </div>
 <?php endif; // is_taxonomy_hierarchical() ?>
+    <input type='checkbox' name='sublink' onclick="javascript:changeState();" value='1'> 是否二级链接
 <div class="form-field term-description-wrap">
 	<label for="tag-description"><?php _e( 'Description' ); ?></label>
 	<textarea name="description" id="tag-description" rows="5" cols="40"></textarea>
 	<p><?php _e('The description is not prominent by default; however, some themes may show it.'); ?></p>
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+        })
+        if ($("#sublink").is(':checked')) {
+            $("#parent").attr("disabled",true);
+        }
+        function changeState() {
+
+            if ($("#sublink").is(':checked')) {
+                $("#parent").attr("disabled",true);
+            }
+            else {
+                $("#parent").attr("disabled",false);
+            }
+        }
+    </script>
 
 <?php
 if ( ! is_taxonomy_hierarchical( $taxonomy ) ) {

@@ -3156,7 +3156,16 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 		'guid' => '',
 		'import_id' => 0,
 		'context' => '',
-	);
+        'post_ver'=>'',
+        'post_cat'=>'',
+        'is_game'=>'',
+        'post_pla'=>'',
+        'post_lan'=>'',
+        'post_size'=>'',
+        'post_upg'=>'',
+        'post_alink'=>'',
+        'post_ilink'=>'',
+    );
 
 	$postarr = wp_parse_args($postarr, $defaults);
 
@@ -3353,6 +3362,17 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 	$pinged = isset( $postarr['pinged'] ) ? $postarr['pinged'] : '';
 	$import_id = isset( $postarr['import_id'] ) ? $postarr['import_id'] : 0;
 
+    $is_game = $postarr['is_game'];
+    $post_ver = $postarr['post_ver'];
+    $post_cat = $postarr['post_cat'];
+    $post_pla = $postarr['post_pla'];
+    $post_lan = $postarr['post_lan'];
+    $post_size = $postarr['post_size'];
+    $post_upg = $postarr['post_upg'];
+    $post_alink = $postarr['post_alink'];
+    $post_ilink = $postarr['post_ilink'];
+
+
 	/*
 	 * The 'wp_insert_post_parent' filter expects all variables to be present.
 	 * Previously, these variables would have already been extracted
@@ -3414,7 +3434,7 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 	$post_mime_type = isset( $postarr['post_mime_type'] ) ? $postarr['post_mime_type'] : '';
 
 	// Expected_slashed (everything!).
-	$data = compact( 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_content_filtered', 'post_title', 'post_excerpt', 'post_status', 'post_type', 'comment_status', 'ping_status', 'post_password', 'post_name', 'to_ping', 'pinged', 'post_modified', 'post_modified_gmt', 'post_parent', 'menu_order', 'post_mime_type', 'guid' );
+    $data = compact( 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_content_filtered', 'post_title', 'post_excerpt', 'post_status', 'post_type', 'comment_status', 'ping_status', 'post_password', 'post_name', 'to_ping', 'pinged', 'post_modified', 'post_modified_gmt', 'post_parent', 'menu_order', 'post_mime_type','post_ver','post_cat', 'is_game','post_pla','post_lan','post_size','post_upg','post_alink','post_ilink', 'guid' );
 
 	$emoji_fields = array( 'post_title', 'post_content', 'post_excerpt' );
 

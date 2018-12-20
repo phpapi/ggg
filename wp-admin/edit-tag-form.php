@@ -168,8 +168,28 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 				<?php else : ?>
 					<p class="description"><?php _e( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.' ); ?></p>
 				<?php endif; ?>
+				<input type='checkbox' name='sublink' id='sublink' onclick="javascript:changeState();"   value='1' <?php if ( '1' == $tag->sublink ) : ?> checked  <?php endif; ?>> 是否二级链接
 			</td>
 		</tr>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+        })
+        if ($("#sublink").is(':checked')) {
+            $("#parent").attr("disabled",true);
+        }
+        function changeState() {
+
+            if ($("#sublink").is(':checked')) {
+                $("#parent").attr("disabled",true);
+            }
+            else {
+                $("#parent").attr("disabled",false);
+            }
+        }
+    </script>
+
 <?php endif; // is_taxonomy_hierarchical() ?>
 		<tr class="form-field term-description-wrap">
 			<th scope="row"><label for="description"><?php _e( 'Description' ); ?></label></th>

@@ -1,0 +1,9 @@
+.carousel slide{
+    height: 300px;
+    width: 800px;
+    margin: 40px 0px!important;
+}
+.carousel-inner img{
+    height: 500px!important;
+    width: 800px;
+}

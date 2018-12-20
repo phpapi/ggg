@@ -1,0 +1,553 @@
+a{
+    text-decoration: none;
+}
+ol, ul ,li{list-style: none;} 
+body{
+    background-color: #ccc
+}
+/* 头部的开始 */
+.nav{
+    background-color: #F8F8F8;
+    width: 100%;
+    height: 30px;
+}
+/* 导航栏的开始 */
+ 
+h1{
+    float: left;
+     margin-left: 330px;
+     line-height: 15px;
+}
+h1 a{
+    width: 121px;
+    height:40px;
+    color: red;
+    margin-top: 20px;
+}
+.mega-menu-wrap ul{
+    line-height: 10px;
+}
+.mega-menu-wrap ul li{
+    line-height: 10px;
+    font-size:20px;
+    margin-top: 30px;
+    margin-right: 20px;
+
+}
+.mega-menu-wrap ul li a{
+     display: block;
+     float: left;
+      
+}
+/* 广告部分 */
+.rtising{
+    width: 100%;
+    height: 30px;
+    background-color: #cccccc;
+}
+/* 内容部分 */
+/* 黑色背景图 */
+/* @media (min-width: 992px) {
+    body {
+        background-image: url(https://img.alicdn.com/imgextra/i4/11193727/TB2e8MAv7SWBuNjSszdXXbeSpXa-11193727.jpg);
+        background-repeat: repeat;
+        background-position: center top;
+    }
+} */
+ /* 白色背景图 */
+ 
+ 
+/* 游戏头像修饰 */
+/* .entry-title{
+    font-size: 18px;
+     
+}
+.portrait img{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+}
+ 
+ 
+.icon-safe p {
+    float: left;
+    margin-top: 10px;
+    margin-left: 160px;
+    
+}
+.one{
+    margin-top: -110px;
+}
+.entry-head ul{
+     margin-top: -40px;
+     margin-left: 85px;
+     line-height: 20px;
+}
+.entry-head li {
+    float: left;
+    margin-left: 78px;
+    top: 80px;
+    width: 160px;
+    height: 20px;;
+    color: #666666;
+    font-size: 14px;
+    line-height: 10px;
+    margin-top:20px;
+}
+
+
+ /* 游戏下载 */
+ /* .section{
+      margin-bottom: 20px;
+ }
+
+ .section a{
+    color: #666666;
+    font-size: 16px;
+    margin-top: 140px;
+    margin-left: 160px;
+   
+     
+ }
+
+ .section .download .left{
+    width: 100px;
+    height: 40px;
+     background-image: linear-gradient(to right,pink,#31b0d5);
+     
+ }
+ .section .download .right{
+    width: 100px;
+    height: 40px;
+    background-image: linear-gradient(to right,#31b0d5,pink);
+} */ 
+
+
+
+/*  响应式 */
+
+
+ 
+
+/* .shabtn改成8% */
+.shatxt{
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.shatxt img{
+    width: 140px;
+    height: 140px;
+
+    
+}
+h1{
+    /* display:block!important; */
+    margin-left: 20px!important;
+}
+.shat_bd{
+float:right;
+margin-left: 50px;
+}
+.shat_bd p{
+    display: inline-block;
+}
+.shat_bd p img{
+    width: 20px;
+    height: 20px;
+}
+
+.dowl-min ul {
+	width: 319px;
+	height: 60px;
+	display: block;
+	float: left;
+}
+
+.dowl-min ul li {
+	display: block;
+	float: left;
+	width: 159px;
+	height: 40px;
+	line-height: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+	overflow: hidden;
+	font-size: 16px;
+    color: #808080;
+    margin: 0;
+}
+
+.shabtn {
+  margin-left: 28%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.shabtn a{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 100px;
+    color:black;
+     background-image: linear-gradient(to right,pink,#31b0d5);;
+    border-radius: 5px;
+
+}
+
+.dowl-min .bq {
+	width: 660px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	overflow: hidden;
+	font-size: 14px;
+	color: #808080;
+	margin: 10px 0 0;
+}
+
+.dowl-min .bq span {
+	float: left;
+	display: block
+}
+
+.dowl-min .lkbq {
+	float: left;
+	height: 24px;
+	width: 600px;
+}
+
+.dowl-min .bq .lkbq a {
+	display: block;
+	float: left;
+	height: 20px;
+	background: #edeff5;
+	color: #525252;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 11px;
+}
+.pfoot{
+	 margin-top: 20px;
+ }
+.game-panel .pfoot{height: 42px;margin-top: 72px;overflow: hidden;}
+
+.game-jianjie .share-div{
+     margin-top: -24px;
+ }
+
+
+ 
+ 
+
+  
+  .con { overflow: hidden; }
+  .con dd { float: left; }
+   .con dt { width: 100%; font-size: 0.34rem; padding: 0.05rem 0 0.15rem; }
+   .con dd { width: 50%; font-size: 0.24rem; color: #999; line-height: 0.4rem; }
+   .btn { width: 100%; font-size: 0.34rem; padding: 0.15rem 0; }
+   .game_fixed{
+       height: 2rem;
+   }
+   .paybtn{
+       position: absolute;
+       right: 7px;
+       top: 140%;
+   }
+   .paybtn a{
+      display: block;
+      float: right;
+      width: 1.14rem;
+      height: .58rem;
+      margin-left: .1rem;
+      line-height: .58rem;
+      text-align: center;
+      background-color: #5bba22;
+      color: #fff;
+      -webkit-border-radius: .06rem;
+      border-radius: .06rem;
+      overflow: hidden;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+   }
+  
+   .playbtn{
+       top: 105%;
+   }
+
+.shatxt h3{
+    margin-top: -20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+ /* 游戏介绍 */
+ .bt-c p{
+    font-size: 18px;
+    
+     
+ }
+ h3{ 
+     color: #48c8d7;
+     font-size: 16px;
+ }
+ /* 轮播图 */
+ .swiper-container {
+    width: 600px;
+    height: 400px;
+}  
+ 
+/* 猜你喜欢模块 */
+
+.guess{
+    height: 100px;
+    /* width: 100px; */
+}
+
+.guess a{
+    text-decoration: none;
+    text-align: center;
+    color: #48c8d7;
+    font-size: 20px;
+}
+ .guess img{
+     height: 100px;
+     width: 100px;
+     float: left;
+     margin-right: 20px;
+     border-radius: 10px;
+ }
+ .journalism ul {
+     width: 50px;
+     /* height: 50px; */
+     margin-right: 20px;
+ }
+ .journalism ul .item-date{
+    float: left;
+  
+}
+.journalism ul .item-title{
+   float: left;
+ 
+}
+
+#c_sub3{
+    /* display: flex; */
+    width: 100%;
+    margin-top: 40px;
+    margin-left:35px;
+    
+}
+#c_sub3 li{
+    float:left;
+ 
+    width: 60px;
+    height:80px;
+    margin-right:35px;
+    margin-bottom: 30px;
+}
+
+#c_sub3 li img{
+    width: 64px;
+    height: 64px;
+}
+#c_sub3 li p.name{
+font-size: 16px;
+/*color: rgba(4, 0, 0, 0.99);*/
+/*margin-top: 6px;*/
+overflow: hidden;
+/* text-overflow:ellipsis; */
+white-space: nowrap;
+}
+
+
+/* box */
+#box {
+    width: 100%;
+    float: left;
+    margin-left:-30px;
+    /* margin-top: -20px; */
+    margin-bottom:-30px;
+
+}
+/* 评论框 */
+#text {
+    width:100%;
+    height: 130px;
+    margin-left:30px;
+    background-color:#ffffff;
+    margin-top: -20px;
+    outline: none;
+    border-radius: 8px;
+  border: 1px #ccc solid;
+    overflow: hidden;
+    margin-top: 49px;
+ 
+
+}
+#text .remark p{
+      width: 50px;
+      height: 50px;
+      background: red;
+}
+
+#tup {
+    float: right;
+    display: block;
+   /* margin-left: 10px; */
+    width:100%;
+    height: 36px;
+    background-color: #48c8d7;
+    font-size: 14px;
+    line-height: 36px;
+    border-radius:6px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top:20px;
+}
+
+#wad {
+    margin-top: 100px;
+    margin-left: 10px;
+    width:750px;
+    border-radius: 10px;
+    /* padding:20px; */
+   
+}
+.cont{
+    margin-left: -25px;
+}
+/* 评论框标题 */
+.bor p{
+    font-size: 20px;
+    color: #48c8d7;
+    margin-left: 20px;
+    margin-top: 20px;
+    float: left;
+}
+     p,
+     ul,
+     li {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+     }
+     #wad {
+    padding:10px;
+    margin-left: 100px;
+    /* margin-bottom: 130px; */
+
+     }
+
+#wad li{
+    font-size: 14px;
+    border-top: 1px solid #d2d2d2;
+    /* margin-bottom: 30px; */
+
+  
+    word-wrap: break-word;
+
+    padding:10px;
+    /* height:120px; */
+    /* margin-top: 20px; */
+}
+#box h3 {
+   
+    color:#48c8d7;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: -710px;
+    
+}
+/* #box .bor{
+    width:800px;
+    height: 150px; */
+    /* padding: 10px; */
+    /* border-radius: 10px;
+} */
+.head-face img{
+    border: 1px solid gray;
+    width: 40px;
+    height: 40px;
+	border-radius: 50%;
+    overflow: hidden;
+
+    
+}
+ 
+
+.username{
+    color:gray;
+    margin-top: 6px;
+     
+
+}
+.content-body{
+
+    margin-top: -5px;
+    margin-left: 55px;
+    /* margin-bottom: 40px; */
+}
+/* p.cont-footer{
+    float:right;
+    margin-right:-36px!important;
+    color:gray;
+    margin-top:-29px;
+    margin-left: 20px;
+} */
+
+element.style{
+margin-right: 10px;
+}
+
+
+/* 评论框点赞样式 */
+  /* img{
+    
+}
+.userimg{
+    float: left;
+    margin-top: 20px;
+    left: 50px；
+    
+}
+.userimg img{
+    width: 32px;
+    height: 32px;
+    margin-left: 20px;
+    float: left;
+    margin-left: 610px;
+    margin-top: -42px;
+}
+.userimg p{
+    margin-top: 20px;
+} */
+
+
+/* .art-comment-con .comment-list .like{
+    margin-left: 200px;
+    
+    right: 4px;
+    bottom: 8px;
+    cursor: pointer;
+    background: url(../images/dianzan.png);
+   
+    padding-left: 20px;
+    position: absolute;
+} */
+i.fa:hover{
+   color:black;
+}

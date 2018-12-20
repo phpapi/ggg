@@ -573,6 +573,43 @@ do_action( 'edit_form_top', $post ); ?>
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
 	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
 </div>
+
+    <input type="checkbox" id="chkInputNew" name="is_game" value="1" onclick="javascript:changeState();" <?php if ( '1' == $post->is_game ) : ?> checked  <?php endif; ?>  />游戏内容<br>
+    <span id="sNew" style="display: none">
+版本：<input type="text"  name="post_ver" value="<?php echo esc_attr( $post->post_ver ); ?>" /><br>
+类型：<input type="text"  name="post_cat" value="<?php echo esc_attr( $post->post_cat ); ?>"/><br>
+平台：<input type="text"  name="post_pla" value="<?php echo esc_attr( $post->post_pla ); ?>"/><br>
+语言：<input type="text"  name="post_lan" value="<?php echo esc_attr( $post->post_lan ); ?>"/><br>
+大小：<input type="text"  name="post_size" value="<?php echo esc_attr( $post->post_size ); ?>" /><br>
+更新：<input type="text"  name="post_upg" value="<?php echo esc_attr( $post->post_upg ); ?>"/><br>
+安卓链接：<input type="text" name="post_alink" value="<?php echo esc_attr( $post->post_alink ); ?>"/><br>
+IOS链接：<input type="text" name="post_ilink" value="<?php echo esc_attr( $post->post_ilink ); ?>"/><br>
+
+    </span>
+
+    </span>
+
+    <script type="text/javascript">
+        $(function () {
+
+        })
+        if ($("#chkInputNew").is(':checked')) {
+            $("#sNew").show();
+            $("#selProductName").attr("disabled", true);
+        }
+        function changeState() {
+
+            if ($("#chkInputNew").is(':checked')) {
+                $("#sNew").show();
+                $("#selProductName").attr("disabled", true);
+            }
+            else {
+                $("#sNew").hide();
+                $("#selProductName").attr("disabled", false);
+            }
+        }
+    </script>
+
 <?php
 /**
  * Fires before the permalink field in the edit form.
