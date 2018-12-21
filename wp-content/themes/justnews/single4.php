@@ -18,11 +18,14 @@ $related = get_posts(
     )
 );
 //                    print_r($related);
-
+//print"<pre>";
 $f = array_shift($related);
 $t = get_the_post_thumbnail_url($f->ID);
+//var_dump($t);
 $cat = wp_get_post_categories( $post->ID );
+//var_dump($cat);
 //                    $terms = get_the_category( $cat[0]  );
+//                    var_dump($terms);
 $te = get_term_by('id' , $cat[0], 'category' );
 //                    var_dump($te);
 //                    var_dump($cat);
@@ -37,9 +40,9 @@ $sub = get_cat_name( $cat[0] );
     <div class="content" style="background-color:#fff">
         <ol class="breadcrumb entry-breadcrumb">
             <li class="home"><i class="fa fa-map-marker"></i>
-                <a href="#">首页</a></li>
-            <li><a href="/game/<?php $te->slug;?>"><?php $te->name;?></a></li>
-            <li><a href="#"> <?php the_title();?> </a></li>
+                <a href="/">首页</a></li>
+            <li><a href="/game/<?php echo $te->slug;?>"><?php echo $te->name;?></a></li>
+<!--            <li><a href="#"> --><?php //the_title();?><!-- </a></li>-->
         </ol>
         <article id="post-5700" class="post-5700 post type-post status-publish format-standard has-post-thumbnail hentry category-shouji tag-2147 tag-2149 tag-2136">
 
@@ -67,8 +70,8 @@ $sub = get_cat_name( $cat[0] );
 
                 </div>
                 <div class="shabtn">
-                    <a href="<?php echo $post->post_alink;?>" class="game_in playcount" data="249">进入游戏</a>
-                    <a href="<?php echo $post->post_ilink;?>" class="weiduan" id="weiduan">用APP打开</a>
+                    <a href="<?php echo $post->post_alink;?>" class="game_in playcount" data="249">安装安卓版</a>
+                    <a href="<?php echo $post->post_ilink;?>" class="weiduan" id="weiduan">安装ios版</a>
                 </div>
             </div>
 

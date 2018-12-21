@@ -569,6 +569,9 @@ do_action( 'edit_form_top', $post ); ?>
 	 * @param WP_Post $post Post object.
 	 */
 	$title_placeholder = apply_filters( 'enter_title_here', __( 'Enter title here' ), $post );
+
+    $cc = get_terms_by_sublink();
+
 	?>
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
 	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
@@ -577,11 +580,29 @@ do_action( 'edit_form_top', $post ); ?>
     <input type="checkbox" id="chkInputNew" name="is_game" value="1" onclick="javascript:changeState();" <?php if ( '1' == $post->is_game ) : ?> checked  <?php endif; ?>  />游戏内容<br>
     <span id="sNew" style="display: none">
 版本：<input type="text"  name="post_ver" value="<?php echo esc_attr( $post->post_ver ); ?>" /><br>
-类型：<input type="text"  name="post_cat" value="<?php echo esc_attr( $post->post_cat ); ?>"/><br>
-平台：<input type="text"  name="post_pla" value="<?php echo esc_attr( $post->post_pla ); ?>"/><br>
-语言：<input type="text"  name="post_lan" value="<?php echo esc_attr( $post->post_lan ); ?>"/><br>
+类型：
+        <select name="post_cat" id="post_cat">
+            <?php foreach($cc as $k=>$v) {?>
+                <?php  $sub = get_cat_name( $v['term_id'] ); $link = get_category_link($v['term_id']); ?>
+                <option value="<?php echo $sub; ?>" <?php if ( $sub == $post->post_cat ) : ?> selected  <?php endif; ?> ><?php echo $sub; ?></option>
+            <?php } ?>
+		</select><br>
+平台：
+        <select name="post_pla" id="post_pla">
+            <option value="安卓"<?php if ( '安卓' == $post->post_pla ) : ?> selected  <?php endif; ?>>安卓
+            </option>
+            <option value="IOS"<?php if ( 'IOS' == $post->post_pla ) : ?> selected  <?php endif; ?>>IOS
+            </option>
+            <option value="通用"<?php if ( '通用' == $post->post_pla ) : ?> selected  <?php endif; ?>>通用</option>
+		</select><br>
+语言：
+        <select name="post_lan" id="post_lan">
+            <option value="简体中文"<?php if ( '简体中文' == $post->post_lan ) : ?> selected  <?php endif; ?>>简体中文</option>
+            <option value="繁体中文"<?php if ( '繁体中文' == $post->post_lan ) : ?> selected  <?php endif; ?>>繁体中文</option>
+            <option value="英文"<?php if ( '英文' == $post->post_lan ) : ?> selected  <?php endif; ?>>英文</option>
+		</select><br>
 大小：<input type="text"  name="post_size" value="<?php echo esc_attr( $post->post_size ); ?>" /><br>
-更新：<input type="text"  name="post_upg" value="<?php echo esc_attr( $post->post_upg ); ?>"/><br>
+更新：<input type="text"  name="post_upg" id="post_upg" value="<?php echo esc_attr( $post->post_upg ); ?>"/><br>
 安卓链接：<input type="text" name="post_alink" value="<?php echo esc_attr( $post->post_alink ); ?>"/><br>
 IOS链接：<input type="text" name="post_ilink" value="<?php echo esc_attr( $post->post_ilink ); ?>"/><br>
 
@@ -608,6 +629,110 @@ IOS链接：<input type="text" name="post_ilink" value="<?php echo esc_attr( $po
                 $("#selProductName").attr("disabled", false);
             }
         }
+
+
+        (function($) {
+            var Calendar = function(ele, options) {
+                this.ele = ele;
+                this.opt = options;
+                this.defaults = {
+                    color: 'blue',
+                    fontsize: '14px',
+                }
+                this.obj = $.extend({}, this.defaults, this.opt);
+            };
+            Calendar.prototype = {
+                init: function() {
+                    return this.ele.on("focus", function() {
+                        createEle($(this))
+                    });
+                }
+            };
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var currentMonth = currentDate.getMonth();
+
+            function createEle(ele) {
+                var $parent = ele.parent();
+                if (!$parent || $parent[0].tagName == "BODY") {
+                    throw "Error: this parent() is not defined";
+                    return
+                } else {
+                    ele.css("border", "1px solid red");
+                    $parent.css({
+                        padding: 0,
+                        margin: 0,
+                        position: 'relative',
+                    });
+                    if ($("#week").length == 0) {
+                        $parent.append("<div id='week'><h1><span class=\'prev\'><</span><span class=\'content\'>1</span><span class=\'next\'>></span></h1></div>");
+                        $parent.find("#week").css({
+                            position: "absolute",
+                            left: 0,
+                            top: ele.outerHeight(true),
+                            zIndex: 1000,
+                            background: "#fff"
+                        })
+                        weeklist($parent.find("h1"));
+                        var $week = ele.next();
+                        updateDate(currentMonth, $week); //传参数月份
+                        $week.find(".prev").click(function() {
+                            updateDate(--currentMonth, $week);
+                        });
+                        $week.find(".next").click(function() {
+                            updateDate(++currentMonth, $week);
+                        });
+                    }
+                }
+            }
+
+            function weeklist(ele) {
+                if (ele.parents($("#week")).find("ul:eq(0)").length == 0) {
+                    ele.after('<ul></ul>');
+                    var weekText = ['日', '一', '二', '三', '四', '五', '六'];
+                    for (var i = 0; i < 7; i++) {
+                        ele.next().append('<li>' + weekText[i] + '</li>')
+                    }
+                    ele.next().after('<ul class=\'calendarList\'></ul>');
+                }
+            }
+
+            function updateDate(m, obj) {
+                var activeDate = new Date(currentYear, m, 1); //外面传进来的不断变化的日期对象
+                var year = activeDate.getFullYear();
+                var month = activeDate.getMonth();
+                obj.find(".content").html(year + '年' + (month + 1) + '月');
+                var $calendarList = obj.find($(".calendarList"));
+                $calendarList.html("")
+                var n = 1 - activeDate.getDay();
+                if (n == 1) {
+                    n = -6;
+                }
+                activeDate.setDate(n);
+                for (var i = 0; i < 42; i++) {
+                    var date = activeDate.getDate();
+                    $calendarList.append('<li>' + date + '</li>');
+                    var $li = $calendarList.find("li");
+                    if (activeDate.getMonth() != month) {
+                        $li.eq(i).css("color", "#ccc");
+                    }
+                    $li.eq(i).attr('data-time', year + "-" + (activeDate.getMonth() + 1) + "-" + date);
+                    $li.eq(i).click(function(event) {
+                        obj.prev().val($(this).attr('data-time'));
+                        obj.prev().css('borderColor', '#ccc')
+                        obj.remove();
+                    });
+                    activeDate.setDate(date + 1);
+                }
+            }
+            $.fn.calendar = function(options) {
+                var calendares = new Calendar(this, options);
+                return calendares.init();
+            }
+        })(jQuery)
+
+
+        $("#post_upg").calendar();
     </script>
 
 <?php
