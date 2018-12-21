@@ -143,6 +143,7 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 			<p class="description"><?php _e('The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.'); ?></p></td>
 		</tr>
 <?php } ?>
+        <tr><th>是否二级链接</th><td><input type='checkbox' name='sublink' id='sublink' onclick="javascript:changeState();"   value='1' <?php if ( '1' == $tag->sublink ) : ?> checked  <?php endif; ?>> </td></tr>
 <?php if ( is_taxonomy_hierarchical($taxonomy) ) : ?>
 		<tr class="form-field term-parent-wrap">
 			<th scope="row"><label for="parent"><?php echo esc_html( $tax->labels->parent_item ); ?></label></th>
@@ -168,7 +169,7 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 				<?php else : ?>
 					<p class="description"><?php _e( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.' ); ?></p>
 				<?php endif; ?>
-				<input type='checkbox' name='sublink' id='sublink' onclick="javascript:changeState();"   value='1' <?php if ( '1' == $tag->sublink ) : ?> checked  <?php endif; ?>> 是否二级链接
+
 			</td>
 		</tr>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -178,11 +179,13 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
         })
         if ($("#sublink").is(':checked')) {
             $("#parent").attr("disabled",true);
+            $("#parent").val(-1);
         }
         function changeState() {
 
             if ($("#sublink").is(':checked')) {
                 $("#parent").attr("disabled",true);
+                $("#parent").val(-1);
             }
             else {
                 $("#parent").attr("disabled",false);
