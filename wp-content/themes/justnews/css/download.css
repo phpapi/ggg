@@ -56,98 +56,37 @@ h1 a{
 } */
  /* 白色背景图 */
  
- 
-/* 游戏头像修饰 */
-/* .entry-title{
-    font-size: 18px;
-     
-}
-.portrait img{
-    width: 100px;
-    height: 100px;
-    margin-top: 20px;
-}
- 
- 
-.icon-safe p {
-    float: left;
-    margin-top: 10px;
-    margin-left: 160px;
-    
-}
-.one{
-    margin-top: -110px;
-}
-.entry-head ul{
-     margin-top: -40px;
-     margin-left: 85px;
-     line-height: 20px;
-}
-.entry-head li {
-    float: left;
-    margin-left: 78px;
-    top: 80px;
-    width: 160px;
-    height: 20px;;
-    color: #666666;
-    font-size: 14px;
-    line-height: 10px;
-    margin-top:20px;
-}
-
-
- /* 游戏下载 */
- /* .section{
-      margin-bottom: 20px;
- }
-
- .section a{
-    color: #666666;
-    font-size: 16px;
-    margin-top: 140px;
-    margin-left: 160px;
-   
-     
- }
-
- .section .download .left{
-    width: 100px;
-    height: 40px;
-     background-image: linear-gradient(to right,pink,#31b0d5);
-     
- }
- .section .download .right{
-    width: 100px;
-    height: 40px;
-    background-image: linear-gradient(to right,#31b0d5,pink);
-} */ 
-
-
-
-/*  响应式 */
-
-
- 
 
 /* .shabtn改成8% */
+
+#gametop .bigImg{
+    width: 20%;
+    height:20%;
+    float: left;
+  
+       
+}
 .shatxt{
+    width: 72%;
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    margin-left: 5%;
+
+
 }
 
-.shatxt img{
-    width: 140px;
-    height: 140px;
-
-    
+.shatxt a{
+    display: inline-block;
+    margin-bottom: 20px;
 }
 h1{
-    /* display:block!important; */
+
     margin-left: 20px!important;
 }
 .shat_bd{
-float:right;
-margin-left: 50px;
+  
+margin-bottom: 5%;
+margin-left: 5%;
 }
 .shat_bd p{
     display: inline-block;
@@ -174,7 +113,7 @@ margin-left: 50px;
     margin-bottom: 20px;
 	overflow: hidden;
 	font-size: 16px;
-    color: #808080;
+    color:#000;
     margin: 0;
 }
 
@@ -189,9 +128,9 @@ margin-left: 50px;
     height: 40px;
     text-align: center;
     line-height: 40px;
-    margin-right: 100px;
+    margin-right:10%;
     color:black;
-     background-image: linear-gradient(to right,pink,#31b0d5);;
+     background-image: linear-gradient(to right,pink,#3ca5f6);;
     border-radius: 5px;
 
 }
@@ -279,7 +218,7 @@ margin-left: 50px;
 
 .shatxt h3{
     margin-top: -20px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     margin-bottom: 20px;
     
 }
@@ -296,8 +235,27 @@ margin-left: 50px;
  /* 游戏介绍 */
  .bt-c p{
     font-size: 18px;
+   
     
      
+ }
+ .bt-c .btn-info{
+font-size: 18px;
+background-color:#3ca5f6;
+
+ }
+
+ p.word{
+     font-size: 16px;
+     color:#000;
+ }
+ p.title{
+     display: inline-block;
+     width: 400px;
+     color:#fff;
+     background-color: #3ca5f6;
+     border-radius: 6px;
+     margin-left:18%;
  }
  h3{ 
      color: #48c8d7;
@@ -308,7 +266,15 @@ margin-left: 50px;
     width: 600px;
     height: 400px;
 }  
- 
+.carousel-indicators{
+    margin-left:-28%!important;
+}
+.carousel-indicators li{
+    width: 20px!important;
+    height: 20px!important;
+    margin-right: 10px!important;
+}
+
 /* 猜你喜欢模块 */
 
 .guess{
@@ -321,6 +287,7 @@ margin-left: 50px;
     text-align: center;
     color: #48c8d7;
     font-size: 20px;
+    width: 60px;
 }
  .guess img{
      height: 100px;
@@ -359,17 +326,22 @@ margin-left: 50px;
     margin-bottom: 30px;
 }
 
+#c_sub3 li a.icon_80{
+    width: 62px!important;
+}
+
 #c_sub3 li img{
-    width: 64px;
+    width: 60px;
     height: 64px;
 }
 #c_sub3 li p.name{
-font-size: 16px;
-/*color: rgba(4, 0, 0, 0.99);*/
-/*margin-top: 6px;*/
+font-size: 14px;
+color:#000;
+margin-top: 4px;
 overflow: hidden;
-/* text-overflow:ellipsis; */
+text-overflow:ellipsis;
 white-space: nowrap;
+
 }
 
 
@@ -433,7 +405,7 @@ white-space: nowrap;
 /* 评论框标题 */
 .bor p{
     font-size: 20px;
-    color: #48c8d7;
+    color: #000;
     margin-left: 20px;
     margin-top: 20px;
     float: left;

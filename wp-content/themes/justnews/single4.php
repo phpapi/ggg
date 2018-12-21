@@ -3,7 +3,7 @@ global $options,$current_user;
 $dashang_display = isset($options['dashang_display']) ? $options['dashang_display'] : 0;
 $show_author = isset($options['show_author']) && $options['show_author']=='0' ? 0 : 1;
 get_header();?>
-<link rel='stylesheet' id='megamenu-css' href='<?php echo get_template_directory_uri()?>/Font-Awesome-master/css/font-awesome.css"' type='text/css' />
+<link rel='stylesheet' id='megamenu-css' href='<?php echo get_template_directory_uri()?>/Font-Awesome-master/css/font-awesome.css' type='text/css' />
 <link rel='stylesheet' id='megamenu-css' href='<?php echo get_template_directory_uri()?>/css/download.css' type='text/css' />
 <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/css/style_2.css">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/css/bootstrap.min.css">
@@ -18,7 +18,7 @@ $related = get_posts(
     )
 );
 //                    print_r($related);
-//print"<pre>";
+//print"<p class="word"re>";
 $f = array_shift($related);
 $t = get_the_post_thumbnail_url($f->ID);
 //var_dump($t);
@@ -47,13 +47,16 @@ $sub = get_cat_name( $cat[0] );
         <article id="post-5700" class="post-5700 post type-post status-publish format-standard has-post-thumbnail hentry category-shouji tag-2147 tag-2149 tag-2136">
 
             <div class="game_top" id="gametop">
+                <!-- <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img"> -->
+                <?php
+                    if ( has_post_thumbnail() ) {
+                        the_post_thumbnail('', array('class' => 'img-responsive img bigImg')); // add post thumbnail
+                    } 
+                    ?>
                 <div class="shatxt">
-                    <h3><?php the_title(); ?></h3>
-                    <!-- <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img"> -->
-                    <?php the_post_thumbnail(); ?>
                     <div class="shat_bd">
-
-                        <p>检测：<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png"> 安全无毒、<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png"> 无广告、<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png">无插件、
+                        <h3><?php the_title(); ?></h3>
+                        <p class="word">检测：<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png"> 安全无毒、<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png"> 无广告、<img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png">无插件、
                             <img src="<?php echo get_template_directory_uri()?>/images/ico-aq.png"> 建议18岁以上的成年人游戏</p>
                         <div class="dowl-min fl">
                             <ul>
@@ -65,14 +68,13 @@ $sub = get_cat_name( $cat[0] );
                                 <li>更新：<?php echo $post->post_upg;?></li>
                             </ul>
                         </div>
-
                     </div>
 
                 </div>
                 <div class="shabtn">
                     <a href="<?php echo $post->post_alink;?>" class="game_in playcount" data="249">安装安卓版</a>
                     <a href="<?php echo $post->post_ilink;?>" class="weiduan" id="weiduan">安装ios版</a>
-                </div>
+                    </div>
             </div>
 
 
@@ -105,9 +107,9 @@ $sub = get_cat_name( $cat[0] );
                         <div class="guess">
                             <a href="/<?php echo $te->slug; ?>/<?php  echo $f->ID; ?>.html">
                                 <img src="<?php echo $t; ?>" alt="">
-                                    <p><?php echo $f->post_title; ?></p>
+                                    <p class="word"><?php echo $f->post_title; ?></p>
                             </a>
-                            <p><?php echo wp_trim_words($f->post_content,50); ?></p>
+                            <p class="word"><?php echo wp_trim_words($f->post_content,72); ?></p>
                         </div>
 
                         <ul id="c_sub3" class="sy_ul cf ">
@@ -128,7 +130,7 @@ $sub = get_cat_name( $cat[0] );
 <!--                                -->
 <!--                            </div>-->
 <!--                            <div class="bor">-->
-<!--                                <p >玩家点评</p>-->
+<!--                                <p class="word" >玩家点评</p>-->
 <!---->
 <!---->
 <!--                                <div id="text" contenteditable="true"></div>-->
@@ -148,7 +150,7 @@ $sub = get_cat_name( $cat[0] );
                         }
                         ?>
                     </div>
-                    <script type="text/javascript" src="//1.ws-sky.com/common/openjs/static/c0sano.js?lgydhdc=pi"></script>
+<!--                    <script type="text/javascript" src="//1.ws-sky.com/common/openjs/static/c0sano.js?lgydhdc=pi"></script>-->
 
         </article>
     </div>
@@ -156,8 +158,8 @@ $sub = get_cat_name( $cat[0] );
         <?php get_sidebar();?>
     </aside>
 </div>
-<script type='text/javascript' src='<?php echo get_template_directory_uri()?>/js/js/main.js'></script>
-<script type='text/javascript' src='<?php echo get_template_directory_uri()?>/js/js/Comment.js'></script>
+<!-- <script type='text/javascript' src='<?php echo get_template_directory_uri()?>/js/js/main.js'></script> -->
+<!-- <script type='text/javascript' src='<?php echo get_template_directory_uri()?>/js/js/Comment.js'></script> -->
 
 <?php
 if(!$current_user->ID){
@@ -172,7 +174,7 @@ if(!$current_user->ID){
                     <h4 class="modal-title">请登录</h4>
                 </div>
                 <div class="modal-body login-modal-body">
-                    <p>您还未登录，请登录后再进行相关操作！</p>
+                    <p class="word">您还未登录，请登录后再进行相关操作！</p>
                     <div class="login-btn">
                         <a class="btn btn-login" href="<?php echo $login_url;?>">登 录</a>
                         <a class="btn btn-register" href="<?php echo $reg_url;?>">注 册</a>
