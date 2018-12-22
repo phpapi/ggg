@@ -579,14 +579,14 @@ do_action( 'edit_form_top', $post ); ?>
 
     <input type="checkbox" id="chkInputNew" name="is_game" value="1" onclick="javascript:changeState();" <?php if ( '1' == $post->is_game ) : ?> checked  <?php endif; ?>  />游戏内容<br>
     <span id="sNew" style="display: none">
-版本：<input type="text"  name="post_ver" value="<?php echo esc_attr( $post->post_ver ); ?>" /><br>
+版本：<input type="text"  name="post_ver" value="<?php echo esc_attr( $post->post_ver ); ?>" />
 类型：
         <select name="post_cat" id="post_cat">
             <?php foreach($cc as $k=>$v) {?>
                 <?php  $sub = get_cat_name( $v['term_id'] ); $link = get_category_link($v['term_id']); ?>
                 <option value="<?php echo $sub; ?>" <?php if ( $sub == $post->post_cat ) : ?> selected  <?php endif; ?> ><?php echo $sub; ?></option>
             <?php } ?>
-		</select><br>
+		</select>
 平台：
         <select name="post_pla" id="post_pla">
             <option value="安卓"<?php if ( '安卓' == $post->post_pla ) : ?> selected  <?php endif; ?>>安卓
@@ -594,16 +594,16 @@ do_action( 'edit_form_top', $post ); ?>
             <option value="IOS"<?php if ( 'IOS' == $post->post_pla ) : ?> selected  <?php endif; ?>>IOS
             </option>
             <option value="通用"<?php if ( '通用' == $post->post_pla ) : ?> selected  <?php endif; ?>>通用</option>
-		</select><br>
+		</select>
 语言：
         <select name="post_lan" id="post_lan">
             <option value="简体中文"<?php if ( '简体中文' == $post->post_lan ) : ?> selected  <?php endif; ?>>简体中文</option>
             <option value="繁体中文"<?php if ( '繁体中文' == $post->post_lan ) : ?> selected  <?php endif; ?>>繁体中文</option>
             <option value="英文"<?php if ( '英文' == $post->post_lan ) : ?> selected  <?php endif; ?>>英文</option>
-		</select><br>
-大小：<input type="text"  name="post_size" value="<?php echo esc_attr( $post->post_size ); ?>" /><br>
-更新：<input type="text"  name="post_upg" id="post_upg" value="<?php echo esc_attr( $post->post_upg ); ?>"/><br>
-安卓链接：<input type="text" name="post_alink" value="<?php echo esc_attr( $post->post_alink ); ?>"/><br>
+		</select>
+大小：<input type="text"  name="post_size" value="<?php echo esc_attr( $post->post_size ); ?>" />
+更新：<input type="text"  name="post_upg" id="post_upg" value="<?php echo esc_attr( $post->post_upg ); ?>"/>
+安卓链接：<input type="text" name="post_alink" value="<?php echo esc_attr( $post->post_alink ); ?>"/>
 IOS链接：<input type="text" name="post_ilink" value="<?php echo esc_attr( $post->post_ilink ); ?>"/><br>
 
     </span>
