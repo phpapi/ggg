@@ -186,7 +186,7 @@ margin-left: 5%;
   .con dd { float: left; }
    .con dt { width: 100%; font-size: 0.34rem; padding: 0.05rem 0 0.15rem; }
    .con dd { width: 50%; font-size: 0.24rem; color: #999; line-height: 0.4rem; }
-   .btn { width: 100%; font-size: 0.34rem; padding: 0.15rem 0; }
+   .btn { width: 20%; font-size: 0.34rem; padding: 0.15rem 0; }
    .game_fixed{
        height: 2rem;
    }
@@ -251,9 +251,9 @@ background-color:#3ca5f6;
  }
  p.title{
      display: inline-block;
-     width: 400px;
-     color:#fff;
-     background-color: #3ca5f6;
+     width:50%;
+     color:#000;
+     /* background-color: #3ca5f6; */
      border-radius: 6px;
      margin-left:18%;
  }
@@ -276,6 +276,16 @@ background-color:#3ca5f6;
 }
 
 /* 猜你喜欢模块 */
+h3.like{
+    width: 20%;
+    border-radius:6px;
+    text-align: center;
+    padding:1%;
+    background-color:#3ca5f6;
+    color:#fff;
+    font-size: 20px;
+
+}
 
 .guess{
     height: 100px;
@@ -320,14 +330,14 @@ background-color:#3ca5f6;
 #c_sub3 li{
     float:left;
  
-    width: 60px;
+    width: 67px;
     height:80px;
-    margin-right:35px;
+    margin-right:28px;
     margin-bottom: 30px;
 }
 
 #c_sub3 li a.icon_80{
-    width: 62px!important;
+    width: 64px!important;
 }
 
 #c_sub3 li img{
@@ -406,7 +416,7 @@ white-space: nowrap;
 .bor p{
     font-size: 20px;
     color: #000;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 20px;
     float: left;
 }
@@ -485,41 +495,16 @@ element.style{
 margin-right: 10px;
 }
 
-
-/* 评论框点赞样式 */
-  /* img{
-    
-}
-.userimg{
-    float: left;
-    margin-top: 20px;
-    left: 50px；
-    
-}
-.userimg img{
-    width: 32px;
-    height: 32px;
-    margin-left: 20px;
-    float: left;
-    margin-left: 610px;
-    margin-top: -42px;
-}
-.userimg p{
-    margin-top: 20px;
-} */
-
-
-/* .art-comment-con .comment-list .like{
-    margin-left: 200px;
-    
-    right: 4px;
-    bottom: 8px;
-    cursor: pointer;
-    background: url(../images/dianzan.png);
-   
-    padding-left: 20px;
-    position: absolute;
-} */
 i.fa:hover{
    color:black;
+}
+
+.playTalk{
+ 
+    display:inline-block;
+    text-align: center;
+    width: 20%;
+    background-color:#3ca5f6;
+    color:#fff!important;
+    border-radius: 6px;
 }

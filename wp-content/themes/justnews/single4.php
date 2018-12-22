@@ -23,7 +23,7 @@ $f = array_shift($related);
 $t = get_the_post_thumbnail_url($f->ID);
 //var_dump($t);
 $cat = wp_get_post_categories( $post->ID );
-//var_dump($cat);
+// var_dump($cat);
 //                    $terms = get_the_category( $cat[0]  );
 //                    var_dump($terms);
 $te = get_term_by('id' , $cat[0], 'category' );
@@ -103,16 +103,31 @@ $sub = get_cat_name( $cat[0] );
                     <!-- 轮播图 -->
 
                     <div class="journalism ">
-                        <h3>猜你喜欢</h3>
+                        <h3 class="like">猜你喜欢</h3>
+                        <?php //var_dump($f->ID , $post->ID); ?>
+                        <?php if( !empty($f->ID) && ($f->ID != $post->ID) ){ ?>
                         <div class="guess">
+                            <?php
+//                             print"<pre>";
+//                             var_dump($te);
+                             if(!empty($te->term_id)){ ?>
                             <a href="/<?php echo $te->slug; ?>/<?php  echo $f->ID; ?>.html">
                                 <img src="<?php echo $t; ?>" alt="">
                                     <p class="word"><?php echo $f->post_title; ?></p>
                             </a>
                             <p class="word"><?php echo wp_trim_words($f->post_content,72); ?></p>
+                            <?php }else{ ?>
+                                 <p class="word">暂无数据</p>
+                                <?php } ?>
                         </div>
+                        <?php }else{ ?>
+                        <div class="guess">
+                            <p class="word">暂无数据</p></div>
+                        <?php } ?>
 
+                        <?php if(!empty($related)){ ?>
                         <ul id="c_sub3" class="sy_ul cf ">
+
                             <?php foreach($related as $k=>$v) {
                                 $tt = get_the_post_thumbnail_url($v->ID);
                                 $cat = wp_get_post_categories( $v->ID );
@@ -123,27 +138,11 @@ $sub = get_cat_name( $cat[0] );
                                     </a>
                                 </li>
                             <?php } ?>
+
                         </ul>
-                        <!-- 评论区 -->
-<!--                        <div id="box">-->
-<!--                            <div class="L_title">-->
-<!--                                -->
-<!--                            </div>-->
-<!--                            <div class="bor">-->
-<!--                                <p class="word" >玩家点评</p>-->
-<!---->
-<!---->
-<!--                                <div id="text" contenteditable="true"></div>-->
-<!--                            </div>-->
-<!--                            <span id="tup" style="margin-right:-30px;">提交</span>-->
-<!--                            <div class="cont">-->
-<!--                                <ul id="wad">-->
-<!---->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                            <?php }else{ ?>
 
-
+                                <?php } ?>
                         <?php
                         if ( isset($options['comments_open']) && $options['comments_open']=='1' ) {
                             comments_template();
