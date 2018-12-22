@@ -42,17 +42,20 @@ $sub = get_cat_name( $cat[0] );
             <li class="home"><i class="fa fa-map-marker"></i>
                 <a href="/">首页</a></li>
             <li><a href="/game/<?php echo $te->slug;?>"><?php echo $te->name;?></a></li>
-<!--            <li><a href="#"> --><?php //the_title();?><!-- </a></li>-->
+            <li><a href="#"> <?php the_title();?> </a></li>
         </ol>
         <article id="post-5700" class="post-5700 post type-post status-publish format-standard has-post-thumbnail hentry category-shouji tag-2147 tag-2149 tag-2136">
 
             <div class="game_top" id="gametop">
                 <!-- <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img"> -->
                 <?php
+
                     if ( has_post_thumbnail() ) {
-                        the_post_thumbnail('', array('class' => 'img-responsive img bigImg')); // add post thumbnail
-                    } 
+                        the_post_thumbnail('medium_large', array('class' => 'img-responsive img bigImg')); // add post thumbnail
                     ?>
+                <?php }else{ ?>
+                        <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img bigImg">
+                        <?php } ?>
                 <div class="shatxt">
                     <div class="shat_bd">
                         <h3><?php the_title(); ?></h3>
@@ -103,13 +106,16 @@ $sub = get_cat_name( $cat[0] );
                     <!-- 轮播图 -->
 
                     <div class="journalism ">
-                        <h3 class="like">猜你喜欢</h3>
+<!--                        <h3 class="like">猜你喜欢</h3>-->
+                        <button type="button" class="btn btn-info">猜你喜欢</button>
                         <?php //var_dump($f->ID , $post->ID); ?>
                         <?php if( !empty($f->ID) && ($f->ID != $post->ID) ){ ?>
                         <div class="guess">
                             <?php
 //                             print"<pre>";
 //                             var_dump($te);
+                            $uri = get_template_directory_uri();
+                            if(!$t){$t= $uri."/images/1.png";}
                              if(!empty($te->term_id)){ ?>
                             <a href="/<?php echo $te->slug; ?>/<?php  echo $f->ID; ?>.html">
                                 <img src="<?php echo $t; ?>" alt="">
@@ -130,10 +136,12 @@ $sub = get_cat_name( $cat[0] );
 
                             <?php foreach($related as $k=>$v) {
                                 $tt = get_the_post_thumbnail_url($v->ID);
+                                $uri = get_template_directory_uri();
+                                if(!$tt){$tt= $uri."/images/1.png";}
                                 $cat = wp_get_post_categories( $v->ID );
                                 $te = get_term_by('id' , $cat[0], 'category' ); ?>
                                 <li col-md-4>
-                                    <a href="/<?php echo $te->slug; ?>/<?php  echo $v->ID; ?>.html" class="ico_80" target="_blank" title="初体计划无限金币"><img src="<?php echo $tt; ?>" data-original="http://www.chinagames.net/images/gdmj.jpg" height="80" style="display: block;">
+                                    <a href="/<?php echo $te->slug; ?>/<?php  echo $v->ID; ?>.html" class="ico_80" target="_blank" title="初体计划无限金币"><img src="<?php echo $tt; ?>" data-original="<?php echo get_template_directory_uri()?>/images/gdmj.jpg" height="80" style="display: block;">
                                         <p class="name"><?php echo $v->post_title; ?></p>
                                     </a>
                                 </li>

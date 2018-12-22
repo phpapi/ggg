@@ -13,7 +13,7 @@ $margin = $img_right ? 'style="margin-right: 0;"' : 'style="margin-left: 0;"';
     <?php $has_thumb = get_the_post_thumbnail(); if($has_thumb){ ?>
     <div class="item-img">
         <a href="<?php the_permalink();?>" title="<?php echo esc_attr(get_the_title());?>" target="_blank">
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('medium'); ?>
         </a>
         <?php
         $category = get_the_category();
