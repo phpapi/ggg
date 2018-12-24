@@ -10,10 +10,15 @@ $img_right = isset($options['list_img_right']) && $options['list_img_right']=='1
 $margin = $img_right ? 'style="margin-right: 0;"' : 'style="margin-left: 0;"';
 ?>
 <li class="item<?php echo $img_right ? ' item2':'';?>">
-    <?php $has_thumb = get_the_post_thumbnail(); if($has_thumb){ ?>
+    <?php $has_thumb = get_the_post_thumbnail();  ?>
     <div class="item-img">
+
         <a href="<?php the_permalink();?>" title="<?php echo esc_attr(get_the_title());?>" target="_blank">
-            <?php the_post_thumbnail('medium'); ?>
+                <?php
+                if($has_thumb) {
+                    the_post_thumbnail('medium');
+                }
+                ?>
         </a>
         <?php
         $category = get_the_category();
@@ -23,7 +28,8 @@ $margin = $img_right ? 'style="margin-right: 0;"' : 'style="margin-left: 0;"';
         <a class="item-category" href="<?php echo get_category_link($cat->cat_ID);?>" target="_blank"><?php echo $cat->name;?></a>
         <?php } ?>
     </div>
-    <?php } ?>
+    <?php   ?>
+
     <div class="item-content<?php echo isset($is_author) && ($is_author || $post->post_status =='draft' || $post->post_status =='pending' ) ? ' item-edit' : '';?>"<?php echo ($has_thumb?'':$margin);?>>
         <?php if(isset($is_author) && ($is_author || $post->post_status =='draft' || $post->post_status =='pending' )){?>
             <a class="edit-link" href="<?php echo get_edit_link($post->ID);?>" target="_blank">编辑</a>
