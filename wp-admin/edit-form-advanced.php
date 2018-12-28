@@ -576,8 +576,8 @@ do_action( 'edit_form_top', $post ); ?>
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
 	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
 </div>
-
-    <input type="checkbox" id="chkInputNew" name="is_game" value="1" onclick="javascript:changeState();" <?php if ( '1' == $post->is_game ) : ?> checked  <?php endif; ?>  />游戏内容<br>
+    <input type="hidden" id="is_game" name="is_game" value="<?php $post->is_game ?>" />
+    <input type="checkbox" id="game" name="game" value="1" onclick="javascript:changeState();" <?php if ( '1' == $post->is_game ) : ?> checked  <?php endif; ?>  />游戏内容<br>
     <span id="sNew" style="display: none">
 版本：<input type="text"  name="post_ver" value="<?php echo esc_attr( $post->post_ver ); ?>" />
 类型：
@@ -614,19 +614,19 @@ IOS链接：<input type="text" name="post_ilink" value="<?php echo esc_attr( $po
         $(function () {
 
         })
-        if ($("#chkInputNew").is(':checked')) {
+        if ($("#game").is(':checked')) {
             $("#sNew").show();
-            $("#selProductName").attr("disabled", true);
+            $("#is_game").attr("value", 1);
         }
         function changeState() {
 
-            if ($("#chkInputNew").is(':checked')) {
+            if ($("#game").is(':checked')) {
                 $("#sNew").show();
-                $("#selProductName").attr("disabled", true);
+                $("#is_game").attr("value", 1);
             }
             else {
                 $("#sNew").hide();
-                $("#selProductName").attr("disabled", false);
+                $("#is_game").attr("value", 0);
             }
         }
 

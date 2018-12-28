@@ -47,14 +47,14 @@ $sub = get_cat_name( $cat[0] );
         <article id="post-5700" class="post-5700 post type-post status-publish format-standard has-post-thumbnail hentry category-shouji tag-2147 tag-2149 tag-2136">
 
             <div class="game_top" id="gametop">
-                <!-- <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img"> -->
+                <!-- <img src="<?php echo get_template_directory_uri()?>/images/default-thumbnail.png" alt="斗地主" class="img"> -->
                 <?php
 
                     if ( has_post_thumbnail() ) {
                         the_post_thumbnail('medium_large', array('class' => 'img-responsive img bigImg')); // add post thumbnail
                     ?>
                 <?php }else{ ?>
-                        <img src="<?php echo get_template_directory_uri()?>/images/1.png" alt="斗地主" class="img bigImg">
+                        <img src="<?php echo get_template_directory_uri()?>/images/default-thumbnail.png" alt="斗地主" class="img bigImg">
                         <?php } ?>
                 <div class="shatxt">
                     <div class="shat_bd">
@@ -115,7 +115,7 @@ $sub = get_cat_name( $cat[0] );
 //                             print"<pre>";
 //                             var_dump($te);
                             $uri = get_template_directory_uri();
-                            if(!$t){$t= $uri."/images/1.png";}
+                            if(!$t){$t= $uri."/images/default-thumbnail.png";}
                              if(!empty($te->term_id)){ ?>
                             <a href="/<?php echo $te->slug; ?>/<?php  echo $f->ID; ?>.html">
                                 <img src="<?php echo $t; ?>" alt="">
@@ -137,7 +137,7 @@ $sub = get_cat_name( $cat[0] );
                             <?php foreach($related as $k=>$v) {
                                 $tt = get_the_post_thumbnail_url($v->ID);
                                 $uri = get_template_directory_uri();
-                                if(!$tt){$tt= $uri."/images/1.png";}
+                                if(!$tt){$tt= $uri."/images/default-thumbnail.png";}
                                 $cat = wp_get_post_categories( $v->ID );
                                 $te = get_term_by('id' , $cat[0], 'category' ); ?>
                                 <li col-md-4>
