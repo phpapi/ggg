@@ -77,7 +77,7 @@ case 'add-tag':
 			403
 		);
 	}
-
+    if($_POST['sublink']==1){$_POST['sublink']=$_POST['parent'];}
 	$ret = wp_insert_term( $_POST['tag-name'], $taxonomy, $_POST );
 	if ( $ret && !is_wp_error( $ret ) )
 		$location = add_query_arg( 'message', 1, $referer );
@@ -157,8 +157,9 @@ case 'editedtag':
 			403
 		);
 	}
-	// print"<pre>";
-	// print_r($_POST);exit;
+	if($_POST['sublink']==1){$_POST['sublink']=$_POST['parent'];}
+//	 print"<pre>";
+//	 print_r($_POST);exit;
 	$tag = get_term( $tag_ID, $taxonomy );
 	if ( ! $tag )
 		wp_die( __( 'You attempted to edit an item that doesn&#8217;t exist. Perhaps it was deleted?' ) );
@@ -400,7 +401,10 @@ do_action( "{$taxonomy}_term_new_form_tag" );
 	<p><?php _e('The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.'); ?></p>
 </div>
 <?php endif; // global_terms_enabled() ?>
-
+    <div class="form-field term-description-wrap">
+        <label for="tag-description">游戏模版</label>
+        <input type='checkbox' name='tmpid' id='tmpid' onclick="javascript:changeState();" value='1'>
+    </div>
 <div class="form-field term-description-wrap">
     <label for="tag-description">是否二级链接</label>
     <input type='checkbox' name='sublink' id='sublink' onclick="javascript:changeState();" value='1'>

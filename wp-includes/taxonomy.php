@@ -1277,9 +1277,16 @@ function has_term_meta( $term_id ) {
 	return $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value, meta_id, term_id FROM $wpdb->termmeta WHERE term_id = %d ORDER BY meta_key,meta_id", $term_id ), ARRAY_A );
 }
 
-function get_terms_by_sublink(){
+function get_terms_by_sublink($term_id=''){
     global $wpdb;
-    return $wpdb->get_results( "SELECT * FROM $wpdb->terms WHERE sublink=1" , ARRAY_A );
+    $where='';
+    if(!empty($term_id)){
+        $where .= " AND sublink=".$term_id;
+    }else{
+        $where .= " AND sublink != 0";
+    }
+    $sql = "SELECT * FROM $wpdb->terms WHERE 1=1 ".$where;
+    return $wpdb->get_results( $sql , ARRAY_A );
 }
 
 /**
@@ -2072,15 +2079,17 @@ function wp_insert_term( $term, $taxonomy, $args = array() ) {
 	// Coerce null description to strings, to avoid database errors.
 	$args['description'] = (string) $args['description'];
     $args['sublink'] = $args['sublink'] ;
+    $args['tmpid'] = $args['tmpid'] ;
 
 
-	$args = sanitize_term($args, $taxonomy, 'db');
+    $args = sanitize_term($args, $taxonomy, 'db');
 
 	// expected_slashed ($name)
 	$name = wp_unslash( $args['name'] );
 	$description = wp_unslash( $args['description'] );
 	$parent = (int) $args['parent'];
     $sublink = (int) $args['sublink'];
+    $tmpid = (int) $args['tmpid'];
 
 	$slug_provided = ! empty( $args['slug'] );
 	if ( ! $slug_provided ) {
@@ -2156,7 +2165,7 @@ function wp_insert_term( $term, $taxonomy, $args = array() ) {
 
 	$slug = wp_unique_term_slug( $slug, (object) $args );
 
-	$data = compact( 'name', 'slug', 'term_group' , 'sublink' );
+	$data = compact( 'name', 'slug', 'term_group' , 'sublink', 'tmpid');
 
 	/**
 	 * Filters term data before it is inserted into the database.
@@ -2679,10 +2688,12 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	$name = wp_unslash( $args['name'] );
 	$description = wp_unslash( $args['description'] );
     $sublink = wp_unslash( $args['sublink'] );
+    $tmpid = wp_unslash( $args['tmpid'] );
 
 	$parsed_args['name'] = $name;
 	$parsed_args['description'] = $description;
     $parsed_args['sublink'] = $sublink;
+    $parsed_args['tmpid'] = $tmpid;
 
 	if ( '' == trim( $name ) ) {
 		return new WP_Error( 'empty_term_name', __( 'A name is required for this term.' ) );
@@ -2769,7 +2780,7 @@ function wp_update_term( $term_id, $taxonomy, $args = array() ) {
 	 */
 	do_action( 'edit_terms', $term_id, $taxonomy );
 
-	$data = compact( 'name', 'slug', 'term_group' ,'sublink' );
+	$data = compact( 'name', 'slug', 'term_group', 'sublink', 'tmpid' );
 
 	/**
 	 * Filters term data before it is updated in the database.
@@ -3597,6 +3608,7 @@ function _split_shared_term( $term_id, $term_taxonomy_id, $record = true ) {
 		'name' => $shared_term->name,
 		'slug' => $shared_term->slug,
         'sublink' => $shared_term->sublink,
+        'tmpid' => $shared_term->tmpid,
 		'term_group' => $shared_term->term_group,
 	);
 

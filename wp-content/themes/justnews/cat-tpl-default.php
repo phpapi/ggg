@@ -1,7 +1,10 @@
 <?php
 get_header();
 $banner = get_term_meta( $cat, 'wpcom_banner', true );
-$cc = get_terms_by_sublink();
+$term = get_term_by('slug', $category_name, 'category');
+$name = $term->name;
+if(empty($term->sublink)) {$sub=$term->term_id;}else{$sub=$term->sublink;}
+$cc = get_terms_by_sublink($sub);
 if($banner){
     $banner_height = get_term_meta( $cat, 'wpcom_banner_height', true );
     $text_color = get_term_meta( $cat, 'wpcom_text_color', true );
@@ -18,18 +21,18 @@ if($banner){
     <div class="main container">
         <div class="content">
             <div class="sec-panel archive-list">
-                <?php if( (in_array($category_name, ['tuijian','game','puke','majiang','qipai']) )){ ?>
+<!--                --><?php //if( (in_array($category_name, ['tuijian','game','puke','majiang','qipai']) )){ ?>
                     <!-- <script type='text/javascript' src="/game1/js/index.js"></script> -->
                     <div class="sec-panel-head">
                         <ul class="list tabs" id="j-newslist">
-                            <?php if($category_name == 'game') $category_name='tuijian';?>
+<!--                            --><?php //if($category_name == 'game') $category_name='tuijian';?>
                             <?php foreach($cc as $k=>$v) {?>
                                 <?php  $sub = get_cat_name( $v['term_id'] ); $link = get_category_link($v['term_id']); ?>
                                 <li class="tab <?php if($category_name==$v['slug'] ){ ?> active <?php } ?>"><a data-id="0" href="<?php echo $link; ?>"> <?php echo $sub; ?> </a></li>
                             <?php } ?>
                         </ul>
                     </div>
-                <?php } ?>
+<!--                --><?php //} ?>
                 <?php if($banner==''){ ?>
                     <div class="sec-panel-head">
                         <h1><?php single_cat_title(); ?></h1>

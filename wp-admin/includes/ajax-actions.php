@@ -889,6 +889,8 @@ function wp_ajax_add_tag() {
 
 	$x = new WP_Ajax_Response();
 
+    if($_POST['sublink']==1){$_POST['sublink']=$_POST['parent'];}
+
 	$tag = wp_insert_term($_POST['tag-name'], $taxonomy, $_POST );
 
 	if ( !$tag || is_wp_error($tag) || (!$tag = get_term( $tag['term_id'], $taxonomy )) ) {
