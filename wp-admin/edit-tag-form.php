@@ -178,17 +178,17 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 
         })
         if ($("#sublink").is(':checked')) {
-            $("#parent").attr("disabled",true);
-            $("#parent").val(-1);
+            // $("#parent").attr("disabled",true);
+            // $("#parent").val(-1);
         }
         function changeState() {
 
             if ($("#sublink").is(':checked')) {
-                $("#parent").attr("disabled",true);
-                $("#parent").val(-1);
+                // $("#parent").attr("disabled",true);
+                // $("#parent").val(-1);
             }
             else {
-                $("#parent").attr("disabled",false);
+                // $("#parent").attr("disabled",false);
             }
         }
     </script>

@@ -466,17 +466,17 @@ do_action( "{$taxonomy}_term_new_form_tag" );
 
         })
         if ($("#sublink").is(':checked')) {
-            $("#parent").attr("disabled",true);
-            $("#parent").val(-1);
+            // $("#parent").attr("disabled",true);
+            // $("#parent").val(-1);
         }
         function changeState() {
 
             if ($("#sublink").is(':checked')) {
-                $("#parent").attr("disabled",true);
-                $("#parent").val(-1);
+                // $("#parent").attr("disabled",true);
+                // $("#parent").val(-1);
             }
             else {
-                $("#parent").attr("disabled",false);
+                // $("#parent").attr("disabled",false);
             }
         }
     </script>
